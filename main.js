@@ -212,7 +212,7 @@ global.dfail = (type, m, conn) => {
 
 if (opts['test']) {
   conn.user = {
-    jid: '2219191@s.whatsapp.net',
+    jid: '557988645802@s.whatsapp.net',
     name: 'test',
     phone: {}
   }
