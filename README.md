@@ -1,4 +1,4 @@
-# wabot-aq
+# wabot-aq1
 Simple WhatsApp Bot
 
 ### FOR TERMUX USER
@@ -9,7 +9,7 @@ Simple WhatsApp Bot
 > pkg install ffmpeg -y
 > pkg install imagemagick -y
 > git clone https://github.com/Nurutomo/wabot-aq
-> cd wabot-aq
+> cd wabot-aq1
 > npm install
 ```
 ###### Run
