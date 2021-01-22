@@ -1,24 +1,24 @@
 global.math = global.math ? global.math : {}
 let handler  = async (m, { conn, args, usedPrefix }) => {
   if (args.length < 1) return conn.reply(m.chat, `
-Mode: ${Object.keys(modes).join(' | ')}
+Modo: ${Object.keys(modes).join(' | ')}
 
-Contoh penggunaan: ${usedPrefix}math medium
+Exemplos de uso: ${usedPrefix}meio matemático
 `.trim(), m)
   let mode = args[0].toLowerCase()
   if (!(mode in modes)) return conn.reply(m.chat, `
-Mode: ${Object.keys(modes).join(' | ')}
+Modo: ${Object.keys(modes).join(' | ')}
 
-Contoh penggunaan: ${usedPrefix}math medium
+Exemplos de uso: ${usedPrefix}meio matemático
 `.trim(), m)
   let id = m.chat
-  if (id in global.math) return conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', global.math[id][0])
+  if (id in global.math) return conn.reply(m.chat, 'Ainda há perguntas não respondidas neste chat', global.math[id][0])
   let math = genMath(mode)
   global.math[id] = [
-    await conn.reply(m.chat, `Berapa hasil dari *${math.str}*?\n\nTimeout: ${(math.time / 1000).toFixed(2)} detik\nBonus Jawaban Benar: ${math.bonus} XP`, m),
+    await conn.reply(m.chat, `Quantos resultados de *${math.str}*?\n\nTempo esgotado: ${(math.time / 1000).toFixed(2)} segundo\nBônus de resposta correta: ${math.bonus} XP`, m),
     math, 4,
     setTimeout(() => {
-      if (global.math[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, global.math[id][0])
+      if (global.math[id]) conn.reply(m.chat, `O tempo acabou!\nA resposta é ${math.result}`, global.math[id][0])
       delete global.math[id]
     }, math.time)
   ]
