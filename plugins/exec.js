@@ -7,14 +7,14 @@ let handler  = async (m, { conn, usedPrefix, command, text, noPrefix, args, isOw
   let _text = (/^=/.test(usedPrefix) ? 'return ' : '') + noPrefix
   let old = m.exp * 1
   conn.clearAuthInfo = conn.groupLeave = () => {
-    throw '_Lu seneng kalo lu diginiin?_'
+    throw '_Você gosta disso?_'
   }
   let i = 20
   _require = m.fromMe ? require : mod => {
     let banned = [
       'child_process', 'fs'
     ]
-    if (banned.includes(mod)) return '_Mau ngapain?_'
+    if (banned.includes(mod)) return '_O que você quer fazer?_'
     return require(mod)
   }
   try {
@@ -23,7 +23,7 @@ let handler  = async (m, { conn, usedPrefix, command, text, noPrefix, args, isOw
       if (--i < 1) return
       console.log(...args)
       return conn.reply(m.chat, util.format(...args), m)
-    }, m, handler, _require, m.fromMe ? conn : { ...conn, deleteChat: conn.clearAuthInfo }, CustomArray, {...process, exit: function exit() { return ':P' }}, args, Object.freeze({ ...global, global: 'Lu mau apa kesini -_-'}))
+    }, m, handler, _require, m.fromMe ? conn : { ...conn, deleteChat: conn.clearAuthInfo }, CustomArray, {...process, exit: function exit() { return ':P' }}, args, Object.freeze({ ...global, global: 'O que você quer aqui -_-'}))
   } catch (e) {
     let err = await syntaxerror(_text)
     if (err) _syntax = '```' + err + '```\n\n'
