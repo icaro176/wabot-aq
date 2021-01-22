@@ -1,7 +1,7 @@
 let handler = async (m, { conn, command, text }) => {
   conn.reply(m.chat, `
-*Pertanyaan:* ${command} ${text}
-*Jawaban:* ${Math.floor(Math.random() * 10)} ${pickRandom(['detik', 'menit', 'jam', 'hari', 'minggu', 'bulan', 'tahun', 'dekade', 'abad'])} lagi ...
+*Questão:* ${command} ${text}
+*Resposta:* ${Math.floor(Math.random() * 10)} ${pickRandom(['segundo', 'minuto', 'hora', 'dia', 'Domigo', 'mês', 'ano', 'década', 'século'])} lagi ...
 `.trim(), m)
 }
 handler.help = ['', 'kah'].map(v => 'kapan' + v + ' <pertanyaan>')
