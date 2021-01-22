@@ -7,8 +7,8 @@ let handler = async (m, { conn }) => {
   } finally {
     let name = m.fromMe ? conn.user : conn.contacts[m.sender]
     let str = `
-Name: ${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])} (@${m.sender.replace(/@.+/, '')})
-Number: +${m.sender.split`@`[0]}
+Nome: ${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])} (@${m.sender.replace(/@.+/, '')})
+Número: +${m.sender.split`@`[0]}
 Link: https://wa.me/${m.sender.split`@`[0]}
 `.trim()
     let mentionedJid = [m.sender]
